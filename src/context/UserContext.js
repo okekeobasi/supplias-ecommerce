@@ -42,8 +42,6 @@ const save = (dispatch) => async (data) => {
   try {
     dispatch({ type: 'PENDING' });
 
-    console.log('data - ', data);
-
     localStorage.setItem('token', data.access_token);
 
     dispatch({ type: 'SAVE', payload: data });

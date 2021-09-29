@@ -42,7 +42,7 @@ const useProducts = () => {
       let newProducts = products.slice(0);
       newProducts.push(product);
 
-      getProducts();
+      setProducts(newProducts);
       if (error) throw error;
     } catch (error) {
       setErrorMessage(error.error_description || error.message);

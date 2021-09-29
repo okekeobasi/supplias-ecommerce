@@ -1,10 +1,9 @@
 import React from 'react';
-import numeral from 'numeral';
 import DashboardLayout from '../../components/dashboard-layout';
 import MiniButton from '../../components/mini-btn';
-import Tag from '../../components/tag';
 import ProductModal from '../../components/product-modal';
 import useProducts from '../../hooks/useProducts';
+import TableRow from '../../components/table-row';
 
 const Product = () => {
   const { products, openModal, setOpenModal } = useProducts();
@@ -36,19 +35,16 @@ const Product = () => {
             </thead>
             <tbody>
               {products.map((product, idx) => (
-                <tr key={idx}>
-                  <td>{product.id}</td>
-                  <td>
-                    <Tag status={product.status ? 'Active' : 'Inactive'} />
-                  </td>
-                  <td>{product.name}</td>
-                  <td>{product.case_count}</td>
-                  <td>{product.mpu}</td>
-                  <td>{product.sku_id}</td>
-                  <td className=" text-right">
-                    {numeral(product.amount).format('0,0.00')}
-                  </td>
-                </tr>
+                <TableRow
+                  key={product.sku_id}
+                  id={idx}
+                  status={product.status}
+                  name={product.name}
+                  case_count={product.case_count}
+                  mpu={product.mpu}
+                  sku_id={product.sku_id}
+                  amount={product.amount}
+                />
               ))}
             </tbody>
           </table>
