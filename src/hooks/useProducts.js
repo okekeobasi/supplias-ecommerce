@@ -41,8 +41,9 @@ const useProducts = () => {
 
       let newProducts = products.slice(0);
       newProducts.push(product);
-      console.log(newProducts);
+
       setProducts(() => newProducts);
+      getProducts();
       if (error) throw error;
     } catch (error) {
       setErrorMessage(error.error_description || error.message);
@@ -73,7 +74,7 @@ const useProducts = () => {
 
   useEffect(() => {
     getProducts();
-  }, [getProducts, products]);
+  }, [getProducts]);
 
   return {
     formData,

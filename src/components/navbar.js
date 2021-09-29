@@ -32,7 +32,6 @@ const NavBar = () => {
 
   const getUserProfile = useCallback(async () => {
     try {
-      console.log(user.id);
       const { data, error } = await supabase
         .from('profiles')
         .select('name')
