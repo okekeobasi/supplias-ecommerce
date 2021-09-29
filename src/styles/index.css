@@ -1,0 +1,22 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  th {
+    @apply text-darkGray font-medium text-xs py-5 pr-4 text-left whitespace-nowrap;
+  }
+
+  tr {
+    @apply border-b border-midGray;
+  }
+
+  td {
+    @apply text-lightBlack text-sm py-3 pr-4 whitespace-nowrap;
+  }
+
+  select {
+    @apply text-gray-400;
+  }
+}
