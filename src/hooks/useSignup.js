@@ -28,24 +28,24 @@ const useSignup = () => {
         else return null;
       });
 
-      const { data, error } = await supabase.auth.signUp({
+      const { user, error } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
       });
 
       if (error) throw error;
 
-      const { data: profile, err } = await supabase
+      const { err } = await supabase
         .from('profiles')
         .insert({
           name: formData.name,
-          id: data.id,
+          id: user.id,
         })
         .single();
 
       if (err) throw err;
 
-      save({ ...data, ...profile });
+      save(user);
     } catch (error) {
       setErrorMessage(error.error_description || error.message);
     }

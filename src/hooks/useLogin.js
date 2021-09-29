@@ -27,14 +27,14 @@ const useLogin = () => {
         else return null;
       });
 
-      const { session, error } = await supabase.auth.signIn({
+      const { user, error } = await supabase.auth.signIn({
         email: formData.email,
         password: formData.password,
       });
 
       if (error) throw error;
 
-      save(session);
+      save(user);
     } catch (error) {
       setErrorMessage(error.error_description || error.message);
     }

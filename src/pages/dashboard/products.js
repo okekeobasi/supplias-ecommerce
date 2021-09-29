@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import numeral from 'numeral';
 import DashboardLayout from '../../components/dashboard-layout';
 import MiniButton from '../../components/mini-btn';
@@ -8,8 +8,6 @@ import useProducts from '../../hooks/useProducts';
 
 const Product = () => {
   const { products, openModal, setOpenModal } = useProducts();
-
-  useEffect(() => {}, [products]);
 
   return (
     <DashboardLayout>

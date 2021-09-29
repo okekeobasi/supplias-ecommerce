@@ -20,7 +20,6 @@ const UserReducer = (state, action) => {
       return {
         ...state,
         user: action.payload,
-        token: action.payload.token,
         is_authenticated: true,
         loading: false,
         error: null,
@@ -42,6 +41,8 @@ const UserReducer = (state, action) => {
 const save = (dispatch) => async (data) => {
   try {
     dispatch({ type: 'PENDING' });
+
+    console.log('data - ', data);
 
     localStorage.setItem('token', data.access_token);
 
